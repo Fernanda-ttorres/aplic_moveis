@@ -1,14 +1,20 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 import { Avatar, ListItem, Icon, Button } from 'react-native-elements';
-import { useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { Diarista } from './types/navigation';
 
 const ProfileScreen: React.FC = () => {
 
   const { item } = useLocalSearchParams();
   const diarista: Diarista = JSON.parse(item as string);
-  
+
+  const handleNavigateToBooking = () => {
+    router.push({
+      pathname: '/BookingScreen',
+    });
+  };
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
@@ -48,7 +54,7 @@ const ProfileScreen: React.FC = () => {
         <Text style={styles.sectionContent}>Telefone: {diarista.phone}</Text>
         <Button
           title="Contratar"
-          onPress={() => {}}
+          onPress={handleNavigateToBooking}
           buttonStyle={styles.button}
         />
       </View>

@@ -14,5 +14,6 @@ export interface Diarista {
   export type RootStackParamList = {
     '(tabs)': undefined;
     ProfileScreen: { diarista: Diarista };
+    BookingScreen: undefined;
   };
   
